@@ -31,7 +31,12 @@ public class Parrafo extends ElementoTexto {
 			aux = this.getIdioma().pasarAlIngles(palabras.get(i)); // primero de mi idioma al ingles
 			traducido.add(idioma.pasarAlIdioma(aux)); // despues del ingles al idioma buscado
 		}
-		Parrafo parrafo = new Parrafo(traducido);
+//		CREO EL NUEVO PARRAFO
+		Parrafo parrafo = new Parrafo(idioma);
+		for (int i = 0; i < traducido.size(); i++) {
+			parrafo.agregarPalabras(traducido.get(i));
+		}
+
 		return parrafo;
 	}
 
@@ -47,13 +52,13 @@ public class Parrafo extends ElementoTexto {
 
 		return aux;
 	}
-	
+
 	public String toString() {
-		String aux="";
-		for(int i=0; i<palabras.size();i++) {
-			aux+=","+palabras.get(i);
+		String aux = "";
+		for (int i = 0; i < palabras.size(); i++) {
+			aux += "," + palabras.get(i);
 		}
-		
+
 		return aux;
 	}
 }

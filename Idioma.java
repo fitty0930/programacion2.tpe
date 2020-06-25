@@ -16,7 +16,7 @@ public class Idioma {
 		palabras.put(palabra1, palabra2);
 	}
 
-	public String getIdioma() {
+	public String getIdiomat() {
 		return idioma;
 	}
 

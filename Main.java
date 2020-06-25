@@ -1,5 +1,14 @@
 package tpe.programacion2;
 
+import java.util.Vector;
+
+import tpe.programacion2.criterios.Criterio;
+import tpe.programacion2.criterios.CriterioAnd;
+import tpe.programacion2.criterios.CriterioCantidad;
+import tpe.programacion2.criterios.CriterioIdioma;
+import tpe.programacion2.criterios.CriterioOr;
+import tpe.programacion2.criterios.CriterioPalabra;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -46,6 +55,16 @@ public class Main {
 		sistema.traducir(parrafo1, frances);
 		sistema.traducir(meinkampf, espaniol);
 		System.out.println(sistema.mostrarElementos());
+		
+		Criterio critpalabra= new CriterioPalabra("hola");
+		Criterio critidioma= new CriterioIdioma(aleman);
+		Criterio critcant= new CriterioCantidad(3);
+		Criterio and = new CriterioAnd(critpalabra, critcant);
+		
+		Vector<Parrafo>aux=sistema.buscarParrafos(critidioma);
+		for(int i=0; i<aux.size();i++) {
+			System.out.println(aux.get(i).toString());
+		}
 		
 	}
 

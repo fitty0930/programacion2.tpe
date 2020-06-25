@@ -45,7 +45,7 @@ public class Articulo extends ElementoTexto {
 
 	@Override
 	public ElementoTexto traducirse(Idioma idioma) {
-		Articulo artTrad = new Articulo("articulo traducido" + idioma.getIdioma());
+		Articulo artTrad = new Articulo("articulo "+this.getTitulo()+" traducido "+ idioma.getIdiomat());
 		for (int i = 0; i < contenido.size(); i++) {
 			artTrad.agregarContenido(contenido.get(i).traducirse(idioma));
 		}
