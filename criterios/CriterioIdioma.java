@@ -14,8 +14,7 @@ public class CriterioIdioma implements Criterio {
 	public boolean cumpleCriterio(Parrafo parrafo) {
 		// TODO Auto-generated method stub
 		String aux = parrafo.getIdioma().getIdiomat();
-//		System.out.println(aux);
-//		System.out.println(idiomab.getIdiomat());
+
 		return aux.equals(idiomab.getIdiomat());
 	}
 

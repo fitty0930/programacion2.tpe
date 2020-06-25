@@ -5,14 +5,15 @@ import java.util.Vector;
 import tpe.programacion2.criterios.Criterio;
 
 public class Parrafo extends ElementoTexto {
-	protected Vector<String> palabras;
+	private Vector<String> palabras;
 
 	public Parrafo(Idioma idioma) {
-		super.setIdioma(idioma);
+		super(idioma);
 		palabras = new Vector<String>();
 	}
 
-	public Parrafo(Vector<String> palabrasc) {
+	public Parrafo(Idioma idioma, Vector<String> palabrasc) {
+		super(idioma);
 		palabras = new Vector<String>(palabrasc);
 	}
 
@@ -24,6 +25,13 @@ public class Parrafo extends ElementoTexto {
 		return palabras.contains(palabra);
 	}
 
+	@Override
+	public Vector<String> obtenerPalabras() {
+		Vector<String> aux = new Vector<String>(palabras);
+		return aux;
+	}
+
+	@Override
 	public ElementoTexto traducirse(Idioma idioma) {
 		Vector<String> traducido = new Vector<String>();
 		String aux;
@@ -32,18 +40,17 @@ public class Parrafo extends ElementoTexto {
 			traducido.add(idioma.pasarAlIdioma(aux)); // despues del ingles al idioma buscado
 		}
 //		CREO EL NUEVO PARRAFO
-		Parrafo parrafo = new Parrafo(idioma);
-		for (int i = 0; i < traducido.size(); i++) {
-			parrafo.agregarPalabras(traducido.get(i));
-		}
+		Parrafo parrafo = new Parrafo(idioma, traducido);
 
 		return parrafo;
 	}
 
+	@Override
 	public int contarPalabras() {
 		return palabras.size();
 	}
-
+	
+	@Override
 	public Vector<Parrafo> buscarParrafos(Criterio crit) {
 		Vector<Parrafo> aux = new Vector<Parrafo>();
 		if (crit.cumpleCriterio(this)) {
@@ -52,7 +59,8 @@ public class Parrafo extends ElementoTexto {
 
 		return aux;
 	}
-
+	
+	@Override
 	public String toString() {
 		String aux = "";
 		for (int i = 0; i < palabras.size(); i++) {
@@ -61,4 +69,5 @@ public class Parrafo extends ElementoTexto {
 
 		return aux;
 	}
+
 }

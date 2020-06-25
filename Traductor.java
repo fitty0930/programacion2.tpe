@@ -15,7 +15,7 @@ public class Traductor {
 	public ElementoTexto traducirElem(ElementoTexto elem, Idioma idioma) {
 		return elem.traducirse(idioma);
 	}
-	
+
 //	PARA BUSCAR TRADUCTOR
 	public boolean conoceIdioma(Idioma idioma) {
 		boolean sabe = false;

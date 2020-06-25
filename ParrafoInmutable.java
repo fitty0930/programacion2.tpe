@@ -12,7 +12,7 @@ public class ParrafoInmutable extends Parrafo{
 	@Override
 	public ElementoTexto traducirse(Idioma idioma) {
 		
-		Parrafo parrafo = new Parrafo(palabras);
+		Parrafo parrafo = new Parrafo(this.getIdioma(), this.obtenerPalabras());
 		return parrafo;
 	}
 }

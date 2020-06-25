@@ -24,6 +24,7 @@ public class Sistema {
 
 	public boolean tenemosElemento(ElementoTexto elemento) {
 		return elementos.contains(elemento);
+//		ESTO HACE QUE ELEMENTO TENGA QUE TENER UN EQUALS distinto del de object
 	}
 
 	public void traducir(ElementoTexto elemento, Idioma idioma) {
@@ -47,13 +48,16 @@ public class Sistema {
 		return null;
 	}
 
-//	CONSULTAR SI ESTO ES ASI
+//	Contar palabras y consultar idioma SOLO de articulos
 	public int contarPalabras(Articulo art) {
 		return art.contarPalabras();
 	}
 
-	
-	// busqueda
+	public String consultarIdioma(Articulo art) {
+		return art.getIdioma().getIdiomat();
+	}
+
+	// busqueda SOLO busca PARRAFOS
 	public Vector<Parrafo> buscarParrafos(Criterio crit) {
 		Vector<Parrafo> aux = new Vector<Parrafo>();
 		for (int i = 0; i < elementos.size(); i++) {
@@ -62,13 +66,13 @@ public class Sistema {
 
 		return aux;
 	}
-	
+
 	public String mostrarElementos() {
-		String aux="";
-		for(int i=0; i<elementos.size();i++) {
-			aux+=". "+elementos.get(i).toString()+"\n";
+		String aux = "";
+		for (int i = 0; i < elementos.size(); i++) {
+			aux += ". " + elementos.get(i).toString() + "\n";
 		}
-		
+
 		return aux;
 	}
 }
