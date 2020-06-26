@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Idioma {
 	private String idioma;
 	HashMap<String, String> palabras;
-	private static String ERROR="ERROR";
+	private final static String ERROR="ERROR";
 	
 	public Idioma(String idioma) {
 		this.idioma = idioma;
@@ -44,5 +44,10 @@ public class Idioma {
 		}
 		
 		return ERROR;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		return ((Idioma)o).getIdiomat().equals(this.getIdiomat());
 	}
 }

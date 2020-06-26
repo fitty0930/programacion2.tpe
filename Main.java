@@ -59,7 +59,7 @@ public class Main {
 		inmu.agregarPalabras("computadora");
 		inmu.agregarPalabras("silla");
 		sistema.agregarElemento(inmu);
-
+		
 		sistema.traducir(parrafo1, frances);
 		sistema.traducir(meinkampf2, espaniol);
 		sistema.traducir(inmu, aleman);
